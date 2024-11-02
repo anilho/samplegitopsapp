@@ -4,16 +4,15 @@ metadata:
   name: argocd
   namespace: argocd
 spec:
-  destination:
-    namespace: default
-    server: https://kubernetes.default.svc
+  project: default
   source:
+    repoURL: 'git@github.com:anilho/samplegitopsapp.git'
     path: argo-cd
-    repoURL: https://github.com/anilho/samplegitopsapp.git
     targetRevision: master
-  sources: []
-  project: argocd
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
+      prune: true
