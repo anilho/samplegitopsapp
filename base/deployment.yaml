@@ -5,8 +5,8 @@ metadata:
 spec:
   replicas: 1
   selector:
-  matchLabels:
-    app: caddy
+    matchLabels:
+      app: caddy
   template:
     metadata:
       labels:
