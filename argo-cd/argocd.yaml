@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  source:
+    path: argo-cd
+    repoURL: https://github.com/anilho/samplegitopsapp.git
+    targetRevision: master
+  sources: []
+  project: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
