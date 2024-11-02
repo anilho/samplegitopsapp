@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  source:
+    path: 'httpd'
+    repoURL: https://github.com/anilho/samplegitopsapp.git
+    targetRevision: master
+  helm:
+    releaseName: httpd
+    values: |
+      replicaCount: 2
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
