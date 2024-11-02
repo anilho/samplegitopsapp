@@ -3,10 +3,11 @@ kind: Application
 metadata:
   name: argocd
   namespace: argocd
+  finalizers:
 spec:
   project: default
   source:
-    repoURL: 'git@github.com:anilho/samplegitopsapp.git'
+    repoURL: 'https://github.com/anilho/samplegitopsapp.git'
     path: argo-cd
     targetRevision: master
   destination:
