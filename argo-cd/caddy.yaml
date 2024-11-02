@@ -6,13 +6,13 @@ metadata:
 spec:
     project: default
     source:
-    repoURL: 'https://github.com/anilho/samplegitopsapp.git'
-    path: overlays
-    targetRevision: master
+      repoURL: 'https://github.com/anilho/samplegitopsapp.git'
+      path: overlays
+      targetRevision: master
     destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: default
+      server: 'https://kubernetes.default.svc'
+      namespace: default
     syncPolicy:
-    automated:
+      automated:
         selfHeal: true
         prune: true
